@@ -1,3 +1,21 @@
 {
-  "plugins": ["react-hot-loader/babel"]
+  "presets": [
+    "react",
+    [
+      "env",
+      {
+        "modules": "commonjs",
+        "loose": true,
+        "targets": {
+          "node": "current"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "babel-plugin-dynamic-import-webpack",
+    ["module-resolver", { "root": ["./src"] }],
+    ["transform-object-rest-spread", { "useBuiltIns": true }]
+  ]
 }
+
