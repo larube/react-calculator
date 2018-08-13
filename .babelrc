@@ -1,21 +1,7 @@
 {
-  "presets": [
-    "react",
-    [
-      "env",
-      {
-        "modules": "commonjs",
-        "loose": true,
-        "targets": {
-          "node": "current"
-        }
-      }
-    ]
-  ],
+  "presets": ["react", "env"],
   "plugins": [
-    "babel-plugin-dynamic-import-webpack",
     ["module-resolver", { "root": ["./src"] }],
     ["transform-object-rest-spread", { "useBuiltIns": true }]
   ]
 }
-
