@@ -1,0 +1,19 @@
+{
+  "name": "react-calculator",
+  "version": "1.0.0",
+  "description": "a simple calculator made in react",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --hot"
+  },
+  "author": "Amador Rubal",
+  "license": "ISC",
+  "dependencies": {
+    "react-hot-loader": "4.3.4"
+  },
+  "devDependencies": {
+    "webpack": "4.16.5",
+    "webpack-cli": "3.1.0"
+  }
+}
