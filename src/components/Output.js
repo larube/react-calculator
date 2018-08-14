@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import OutputButton from './OutputButton';
+import OutputButton from 'components/OutputButton';
 
 const Output = ({ currentOperation, currentResult }) => (
   <div className="screen row">
