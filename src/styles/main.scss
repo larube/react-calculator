@@ -1,3 +1,5 @@
+$app-title-color: #00796b;
+
 * {
   box-sizing: border-box;
 }
@@ -6,7 +8,7 @@ body {
   color: #00796b;
   background-color: white;
   margin: 0;
-  font-family: 'Roboto';
+  font-family: 'Digital';
 }
 
 .calculator-title {
@@ -16,16 +18,12 @@ body {
   margin: 0;
 }
 
-.calculator-title:hover {
-  border-bottom: 1px solid $app-title-color;
-}
-
 .container {
   margin-top: 10%;
   padding: 1% 3% 2% 3%;
   border: 1px solid $app-title-color;
   border-radius: 10px;
-  width: 486px;
+  width: 490px;
   margin: 0 auto;
 }
 
@@ -37,14 +35,8 @@ body {
   text-align: right;
   background-color: black;
   padding: 10px;
-}
-
-.i-btn {
-  font-size: 2em;
-}
-
-.btn-row {
-  padding: 1px 4%;
+  font-family: 'Digital';
+  font-size: 27px;
 }
 
 .input-screen,
@@ -68,16 +60,6 @@ body {
   padding: 0 4%;
   font-size: 22px;
   padding: 5px;
-}
-
-.i-btn {
-  border-radius: 5px;
-  outline: none;
-  text-align: center;
-}
-
-.i-btn:hover {
-  color: #e0e0e0;
 }
 
 .screen {
