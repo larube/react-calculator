@@ -4,9 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'public');
 const APP_DIR = path.resolve(__dirname, 'src');
-// const ASSETS_DIR = path.resolve(__dirname, 'src/assets');
-// const STYLE_DIR = path.resolve(__dirname, 'src/assets/styles');
-const MODULES_DIR = path.resolve(__dirname, './node_modules');
 
 const development =
   !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
@@ -19,27 +16,11 @@ module.exports = {
   output: {
     path: BUILD_DIR,
     filename: '[name]_[hash].js',
-    pathinfo: true,
     publicPath: '/',
   },
   resolve: {
-    extensions: ['.js', '.json'],
+    extensions: ['.js'],
     modules: ['node_modules', 'src'],
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'initial',
-          minSize: 30000,
-        },
-      },
-    },
-    runtimeChunk: {
-      name: 'manifest',
-    },
   },
   devtool: development ? 'eval-source-map' : '',
   module: {
@@ -53,23 +34,9 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               babelrc: true,
-              presets: [
-                'react',
-                [
-                  'env',
-                  {
-                    modules: false,
-                    loose: true,
-                    targets: {
-                      uglify: true,
-                      browsers: ['> 1%', 'last 7 Chrome versions'],
-                    },
-                  },
-                ],
-              ],
+              presets: ['react', 'env'],
               plugins: [
                 ['transform-object-rest-spread', { useBuiltIns: true }],
-                'babel-plugin-dynamic-import-webpack',
                 ...(development ? ['react-hot-loader/babel'] : []),
               ],
             },
@@ -78,15 +45,26 @@ module.exports = {
       },
       // Rules for CSS modules
       {
-        test: /\.css$/,
-        include: [MODULES_DIR, APP_DIR],
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+        test: /\.scss$/,
+        include: [APP_DIR],
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ],
       },
-      // Rules for assets
       {
-        test: /\.(png|svg|jpg|gif|woff|woff2|eot|ttf|otf|ico)$/,
-        include: [MODULES_DIR],
-        use: ['file-loader'],
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        include: [APP_DIR],
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
       },
     ],
   },
@@ -105,7 +83,7 @@ module.exports = {
     ? {
         devServer: {
           hot: true,
-          historyApiFallback: true,
+          open: true,
         },
       }
     : {}),
