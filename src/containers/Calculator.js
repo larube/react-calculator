@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Output from '../components/Output';
-import ButtonNumber from '../components/ButtonNumber';
-import ButtonOperator from '../components/ButtonOperator';
-import ButtonAction from '../components/ButtonAction';
+import ButtonOperator from 'components/ButtonOperator';
+import ButtonAction from 'components/ButtonAction';
+import Output from 'components/Output';
+import ButtonNumber from 'components/ButtonNumber';
 
 const DOT = '.';
 const ERROR = 'ERROR';
