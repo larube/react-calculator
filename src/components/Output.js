@@ -12,7 +12,7 @@ const Output = ({ currentOperation, currentResult }) => (
 
 Output.propTypes = {
   currentOperation: PropTypes.string,
-  currentResult: PropTypes.number,
+  currentResult: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Output.defaultProps = {
