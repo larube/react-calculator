@@ -16,12 +16,13 @@ const Calculator = props => {
   } = props;
 
   return (
-    <div>
+    <div className="container">
+      <div className="calculator-title">React Calculator</div>
       <Screen
         currentOperation={currentOperation}
         currentResult={currentResult}
       />
-      <div className="row">
+      <div>
         <ResetButton />
         <ComputeButton currentOperation={currentOperation} />
       </div>
