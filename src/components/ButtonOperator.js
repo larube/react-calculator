@@ -6,7 +6,7 @@ const ButtonOperator = ({ value, onClick }) => (
 );
 
 ButtonOperator.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.string]).isRequired,
+  value: PropTypes.string.isRequired,
   onClick: PropTypes.func,
 };
 
