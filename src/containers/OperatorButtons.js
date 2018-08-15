@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import ButtonOperator from 'components/ButtonOperator';
+import { OPERATORS } from 'utils/math';
 
 import {
   typingButton,
@@ -11,7 +12,7 @@ import {
 
 const OperatorButtons = ({ onClick }) => (
   <div className="row">
-    {['/', '*', '+', '-'].map(value => (
+    {OPERATORS.map(value => (
       <ButtonOperator value={value} onClick={onClick} key={value} />
     ))}
   </div>
