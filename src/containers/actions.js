@@ -1,10 +1,10 @@
+import { evalComputation } from 'utils/math';
+
 export const TYPING_BUTTON = 'calculator/TYPING_BUTTON';
 export const TYPING_FLOAT_BUTTON = 'calculator/TYPING_FLOAT_BUTTON';
 export const TYPING_OPERATOR_BUTTON = 'calculator/TYPING_OPERATOR_BUTTON';
 export const TYPING_RESET_BUTTON = 'calculator/TYPING_RESET_BUTTON';
 export const TYPING_COMPUTE_BUTTON = 'calculator/TYPING_COMPUTE_BUTTON';
-
-const ERROR = 'ERROR';
 
 export function typingButton(currentOperation) {
   return {
@@ -30,7 +30,7 @@ export function typingOperator(value) {
 export function typingCompute(value) {
   return {
     type: TYPING_COMPUTE_BUTTON,
-    payload: setResult(value),
+    payload: evalComputation(value),
   };
 }
 
@@ -39,14 +39,3 @@ export function resetComputation() {
     type: TYPING_RESET_BUTTON,
   };
 }
-
-const setResult = operation => {
-  let result;
-  try {
-    /* eslint no-eval: "off" */
-    result = eval(operation);
-  } catch (e) {
-    result = ERROR;
-  }
-  return result;
-};

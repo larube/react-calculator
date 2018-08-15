@@ -10,6 +10,7 @@
   "author": "Amador Rubal",
   "license": "ISC",
   "dependencies": {
+    "ramda": "0.25.0",
     "react": "16.4.2",
     "react-dom": "16.4.2",
     "react-hot-loader": "4.3.4",
