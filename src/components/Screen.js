@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 
 import OutputButton from 'components/OutputButton';
 
-const Output = ({ currentOperation, currentResult }) => (
+const Screen = ({ currentOperation, currentResult }) => (
   <div className="screen row">
     <OutputButton className="input-screen" value={currentOperation} />
     <OutputButton className="output-screen" value={currentResult} />
   </div>
 );
 
-Output.propTypes = {
+Screen.propTypes = {
   currentOperation: PropTypes.string,
   currentResult: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
-Output.defaultProps = {
+Screen.defaultProps = {
   currentOperation: null,
   currentResult: null,
 };
 
-export default Output;
+export default Screen;
