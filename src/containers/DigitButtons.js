@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import ButtonNumber from 'components/ButtonNumber';
 
 import {
@@ -37,9 +36,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
 });
 
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(DigitButtons);

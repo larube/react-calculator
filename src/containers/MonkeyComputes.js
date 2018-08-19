@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import { typingButton, typingCompute } from 'containers/actions';
 import { randomCompute } from 'utils/math';
 import { setIntervalXTimes } from 'utils';
@@ -39,9 +38,7 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default compose(
-  connect(
-    null,
-    mapDispatchToProps
-  )
+export default connect(
+  null,
+  mapDispatchToProps
 )(MonkeyComputes);
