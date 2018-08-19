@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import ButtonAction from 'components/ButtonAction';
 
 import { resetComputation } from 'containers/actions';
@@ -13,9 +12,7 @@ const mapDispatchToProps = dispatch => ({
   onClick: () => dispatch(resetComputation()),
 });
 
-export default compose(
-  connect(
-    null,
-    mapDispatchToProps
-  )
+export default connect(
+  null,
+  mapDispatchToProps
 )(ResetButton);

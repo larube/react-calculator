@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import ButtonOperator from 'components/ButtonOperator';
 import { OPERATORS } from 'utils/math';
 
@@ -34,9 +33,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   },
 });
 
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(OperatorButtons);

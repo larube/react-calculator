@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import Screen from 'components/Screen';
 import DigitButtons from 'containers/DigitButtons';
 import OperatorButtons from 'containers/OperatorButtons';
@@ -42,9 +41,7 @@ const Calculator = props => {
 
 const mapStateToProps = state => state;
 
-export default compose(
-  connect(
-    mapStateToProps,
-    null
-  )
+export default connect(
+  mapStateToProps,
+  null
 )(Calculator);

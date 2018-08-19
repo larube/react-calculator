@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import ButtonAction from 'components/ButtonAction';
 
 import { typingCompute, typingOperator } from 'containers/actions';
@@ -20,9 +19,7 @@ const mapDispatchToProps = (dispatch, { currentOperation }) => ({
   },
 });
 
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(ComputeButton);
